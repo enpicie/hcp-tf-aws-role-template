@@ -28,7 +28,7 @@ jobs:
         with:
           tfc_organization: ${{ env.HCP_TERRAFORM_ORG }}
           tfc_workspace: ${{ env.HCP_TERRAFORM_WORKSPACE }}
-          tfc_project_id: ${{ env.HCP_TERRAFORM_PROJECT }}
+          tfc_project: ${{ env.HCP_TERRAFORM_PROJECT }}
           tfc_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: Attach IAM Permissions Variable Set to this Workspace
@@ -37,7 +37,7 @@ jobs:
           tfc_organization: ${{ env.HCP_TERRAFORM_ORG }}
           tfc_workspace_id: ${{ steps.setup_workspace.outputs.workspace_id }}
           tfc_token: ${{ secrets.TF_API_TOKEN }}
-          var_set_name: ${{ vars.AWS_TF_ROLE_VARSET_IAM}}
+          var_set_name: ${{ vars.AWS_TF_ROLE_VARSET_IAM }} # Needed to provision IAM resources.
 
       - name: Deploy Config via HCP Terraform
         uses: chzylee/action-workflow-hcp-terraform-run@v1.1.1
