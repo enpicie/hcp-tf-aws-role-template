@@ -10,6 +10,7 @@ name: Deploy Terraform to HCP
 #       - '**.tf'
 #       - '**.tfvars'
 #       - '.github/workflows/deployment.yml'
+#   workflow_dispatch:
 
 env:
   AWS_REGION: 'us-east-2'
