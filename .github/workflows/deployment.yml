@@ -1,16 +1,15 @@
 name: Deploy Terraform to HCP
 
-# Commented to prevent template repo runs
 # Conditions cause pipeline to run on TF config changes or pipeline changes in main.
-# on:
-#   push:
-#     branches:
-#       - main
-#     paths:
-#       - '**.tf'
-#       - '**.tfvars'
-#       - '.github/workflows/deployment.yml'
-#   workflow_dispatch:
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.tf'
+      - '**.tfvars'
+      - '.github/workflows/deployment.yml'
+  workflow_dispatch:
 
 env:
   AWS_REGION: 'us-east-2'
